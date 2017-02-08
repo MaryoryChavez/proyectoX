@@ -118,25 +118,23 @@ function erased() {
     }
 }
 
+function searchList(evt) {
+    var listaContacto = document.getElementById("lista-chats");
+    var contacto = listaContacto.getElementsByClassName("w-contact-name");
+    var forEach = Array.prototype.forEach;
+    var letter = document.getElementById("search").value;
 
-var search = document.getElementById("search"),
-    listaContacto = document.getElementById("lista-chats"),
-    contacto = listaContacto.getElementsByClassName("w-contact-name"),
-    forEach = Array.prototype.forEach;
-
-search.addEventListener("keyup", function (e) {
-        var choice = this.value;
-
-        forEach.call(contacto, function (f) {
-            if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
-                {
-                    f.parentNode.parentNode.style.display = "none";
-                }else{
-                 f.parentNode.parentNode.style.display = "block";   
-                }
-        });
-    },
-    false);
+    console.log(letter);
+    forEach.call(contacto, function (forEach) {
+        if(forEach.innerHTML.toLowerCase().search(letter.toLowerCase()) == -1){
+            forEach.parentNode.parentNode.style.display = "none";
+        }else{
+            forEach.parentNode.parentNode.style.display = "block";
+        }
+    });
+}
+    
+    
 /*
 function msgOut(_user, _text){
     this.person = _user;
